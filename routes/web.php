@@ -22,11 +22,21 @@ Route::get('/dash', function(){
 //patients routes
 Route::get('/patients', [PatientsController::class,'getallpatients'])->name('patients.index');
 Route::delete('/patients/{id}', [PatientsController::class, 'destroy'])->name('patients.destroy');
+Route::get('/patientedit/{id}', function($id){
+    $patient = User::findOrFail($id);
+    return view('dashboard.patients.edit', compact('patient'));
+})->name('patients.edit');
 
+Route::put('/patientmodify/{id}', [PatientsController::class,'modify'])->name('patients.modify');
 
-
-
+Route::get('/patientsadd', function(){
+    return view ('dashboard.patients.add');
+} );
 //end
+
+
+
+
 
 Route::get('/doctors', function(){
     return view('dashboard.doctors.index');

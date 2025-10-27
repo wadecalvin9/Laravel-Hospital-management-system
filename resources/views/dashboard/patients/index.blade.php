@@ -1,76 +1,56 @@
 <x-dash>
-    <style>
-    </style>
-    <p class="h1">
-        Patients
-    </p>
-    <a class="mainlinks" href=""><i class="fa-solid fa-plus"></i> Add New Patient</a>
+    <p class="h1">Patients</p>
 
-    <p class="h2">Total patients</p>
+    <!-- Add New Button -->
+    <a class="mainlinks" href="/patientsadd"><i class="fa-solid fa-plus"></i> Add New Patient</a>
+
+    <!-- Success Alert -->
+    @if (session('success'))
+        <div class="alert-success">{{ session('success') }}</div>
+    @endif
+
+    <p class="h2">Total Patients</p>
+
+    <!-- Table -->
     <table class="table">
-        <tbody>
-            @if (session('success'))
-                <p class="alert-success">{{ session('success') }}</p>
-            @endif
-
+        <thead>
             <tr>
-                <th>
-                    Name
-                </th>
-
-                <th>
-                    Email
-                </th>
-                <th>
-                    Phone
-                </th>
-                <th>
-                    Address
-
-                </th>
-                <th class="actions">
-                    Actions
-                </th>
-
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th class="actions">Actions</th>
             </tr>
-            @foreach ($patients as $patient)
+        </thead>
+        <tbody>
+            @forelse ($patients as $patient)
                 <tr>
+                    <td>{{ $patient->name }}</td>
+                    <td>{{ $patient->email }}</td>
+                    <td>{{ $patient->phone }}</td>
+                    <td>{{ $patient->address }}</td>
                     <td>
-                        <p>{{ $patient->name }}</p>
+                        <div class="actions">
+                            <!-- Edit Button -->
+                            <a class="edit" href="{{ route('patients.edit', $patient->id) }}">Edit</a>
 
+                            <!-- Delete Form -->
+                            <form action="{{ route('patients.destroy', $patient->id) }}" method="POST"
+                                  onsubmit="return confirm('Are you sure you want to delete this patient?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="delete">Delete</button>
+                            </form>
+                        </div>
                     </td>
-
-                    <td>
-                        <p>{{ $patient->email }}</p>
-
-                    </td>
-                    <td>
-                        <p>{{ $patient->phone }}</p>
-
-                    </td>
-                    <td>
-                        <p>{{ $patient->address }}</p>
-
-                    </td>
-                    <td style="justify-content:center">
-                        <form action="{{ route('patients.destroy', $patient->id) }}" method="POST"
-                            style="display:inline;"
-                            onsubmit="return confirm('Are you sure you want to delete this patient?')">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="delete">Delete</button>
-                        </form>
-
-                        <a class="edit" href="">Edit</a>
-                    </td>
-
                 </tr>
-            @endforeach
-
-
+            @empty
+                <tr>
+                    <td colspan="5" style="text-align: center; color: gray;">
+                        No patients found.
+                    </td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
-
-
-
 </x-dash>
