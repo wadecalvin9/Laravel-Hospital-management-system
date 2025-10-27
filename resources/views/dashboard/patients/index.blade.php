@@ -9,7 +9,7 @@
         <div class="alert-success">{{ session('success') }}</div>
     @endif
 
-    <p class="h2">Total Patients</p>
+    <p class="h2">Total Patients ({{ $patients->count() }})</p>
 
     <!-- Table -->
     <table class="table">

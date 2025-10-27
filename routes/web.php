@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientsController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
@@ -36,11 +37,15 @@ Route::get('/patientsadd', function(){
 
 
 
+//Doctors
 
 
-Route::get('/doctors', function(){
-    return view('dashboard.doctors.index');
-});
+Route::get('/doctors', [DoctorController::class, 'index']);
+
+
+
+
+//end
 
 Route::fallback(function () {
     return response()->view('404', [], 404);
