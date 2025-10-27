@@ -15,5 +15,10 @@ class PatientsController extends Controller
 
     }
 
+    public function destroy( Request  $request, $id){
+        $patient = User::findOrFail($id);
+        $patient->delete();
+       return redirect(route('patients.index'))->with('success','Patient deleted Successfully');
+    }
 
 }

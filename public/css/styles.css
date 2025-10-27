@@ -188,75 +188,89 @@ nav a:hover {
 }
 
 /* Table Styling */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            font-size: 0.95rem;
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
 
-        table th,
-        table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #E5E7EB;
-        }
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #E5E7EB;
+}
 
-        table th {
-            background-color: var(--main-color);
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+table th {
+    background-color: var(--main-color);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
 
-        table tr:hover {
-            background-color: #F9FAFB;
-        }
+table tr:hover {
+    background-color: #F9FAFB;
+}
 
-        .actions {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-        }
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
 
-        .actions button {
-            padding: 6px 12px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            color: white;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
+.actions button {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
 
-        .actions .delete {
-            background-color: #dc2626;
-        }
+.delete {
+    background-color: #ba3030;
+    padding: 2px;
+    color: white;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
 
-        .actions .delete:hover {
-            background-color: #b91c1c;
-        }
+.delete:hover {
+    background-color: #b91c1c;
+}
 
-        .actions .edit {
-            background-color: #2563eb;
-        }
+.edit {
+    background-color: #2563eb;
 
-        .actions .edit:hover {
-            background-color: #1d4ed8;
-        }
+    padding: 2px;
+    color: white;
+}
 
-        @media (max-width: 768px) {
-            table th,
-            table td {
-                padding: 8px 10px;
-                font-size: 0.85rem;
-            }
-        }
+.actions .edit:hover {
+    background-color: #1d4ed8;
+}
+
+@media (max-width: 768px) {
+
+    table th,
+    table td {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+}
 
 .navactive {
     background-color: var(--accent);
     color: white !important;
     text-decoration: none;
+}
+
+.alert-success {
+    color: green;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .menu {
@@ -513,9 +527,8 @@ nav a:hover {
 
 }
 
-@media(max-width:1200px){
-    .mobilenav{
+@media(max-width:1200px) {
+    .mobilenav {
         display: none;
     }
 }
-

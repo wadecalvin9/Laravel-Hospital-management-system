@@ -9,6 +9,10 @@
     <p class="h2">Total patients</p>
     <table class="table">
         <tbody>
+            @if (session('success'))
+                <p class="alert-success">{{ session('success') }}</p>
+            @endif
+
             <tr>
                 <th>
                     Name
@@ -49,10 +53,15 @@
 
                     </td>
                     <td style="justify-content:center">
-                        <button
-                            style="padding:5px; margin:2px; background-color: rgba(227, 9, 9, 0.729); border-radius: 10px;cursor:pointer; color: white;" class="delete">Delete</button>
-                        <button
-                            style="padding:7px; background-color: rgba(20, 20, 217, 0.814); border-radius: 10px;cursor:pointer; color: white;" class="edit">Edit</button>
+                        <form action="{{ route('patients.destroy', $patient->id) }}" method="POST"
+                            style="display:inline;"
+                            onsubmit="return confirm('Are you sure you want to delete this patient?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete">Delete</button>
+                        </form>
+
+                        <a class="edit" href="">Edit</a>
                     </td>
 
                 </tr>

@@ -19,7 +19,14 @@ Route::get('/', function () {
 Route::get('/dash', function(){
     return view('dashboard.index');
 });
-Route::get('/patients', [PatientsController::class,'getallpatients']);
+//patients routes
+Route::get('/patients', [PatientsController::class,'getallpatients'])->name('patients.index');
+Route::delete('/patients/{id}', [PatientsController::class, 'destroy'])->name('patients.destroy');
+
+
+
+
+//end
 
 Route::get('/doctors', function(){
     return view('dashboard.doctors.index');
