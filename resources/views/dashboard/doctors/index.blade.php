@@ -2,7 +2,7 @@
     <p class="h1">Doctors</p>
 
     <!-- Add New Button -->
-    <a class="mainlinks" href="/patientsadd"><i class="fa-solid fa-plus"></i> Add New Doctor</a>
+    <a class="mainlinks" href="{{ route('doctors.add') }}"><i class="fa-solid fa-plus"></i> Add New Doctor</a>
 
     <!-- Success Alert -->
     @if (session('success'))
@@ -20,7 +20,6 @@
                 <th>Phone</th>
                 <th>Address</th>
                 <th>Specialization</th>
-                <th>Gender</th>
                 <th class="actions">Actions</th>
             </tr>
         </thead>
@@ -32,14 +31,13 @@
                     <td>{{ $doctor->phone }}</td>
                     <td>{{ $doctor->address }}</td>
                     <td>{{ $doctor->specialization }}</td>
-                    <td>{{ $doctor->gender }}</td>
                     <td>
                         <div class="actions">
                             <!-- Edit Button -->
-                            <a class="edit" href="{{ route('patients.edit', $doctor->id) }}">Edit</a>
+                            <a class="edit" href="{{ route('doctors.edit', $doctor->id) }}">Edit</a>
 
                             <!-- Delete Form -->
-                            <form action="{{ route('patients.destroy', $doctor->id) }}" method="POST"
+                            <form action="{{ route('doctors.destroy', $doctor->id) }}" method="POST"
                                 onsubmit="return confirm('Are you sure you want to delete this patient?')">
                                 @csrf
                                 @method('DELETE')

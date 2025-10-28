@@ -2,7 +2,7 @@
     <p class="h1">Patients</p>
 
     <!-- Add New Button -->
-    <a class="mainlinks" href="/patientsadd"><i class="fa-solid fa-plus"></i> Add New Patient</a>
+    <a class="mainlinks" href="{{ route('patients.add') }}"><i class="fa-solid fa-plus"></i> Add New Patient</a>
 
     <!-- Success Alert -->
     @if (session('success'))

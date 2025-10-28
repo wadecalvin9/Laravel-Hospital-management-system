@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Doctor;
 use App\Http\Requests\StoreDoctorRequest;
 use App\Http\Requests\UpdateDoctorRequest;
+use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
@@ -20,48 +21,53 @@ class DoctorController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $incomming_data  = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'specialization' => 'required',
+            'gender' => 'required',
+
+
+        ]);
+        Doctor::create($incomming_data);
+        return redirect(route('doctors.index'))->with('success','Doctor added Successfully');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreDoctorRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Doctor $doctor)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Doctor $doctor)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDoctorRequest $request, Doctor $doctor)
+    public function update(Request $request, $id)
     {
-        //
+
+        $incomming_data  = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'specialization' => 'required',
+            'gender' => 'required',
+
+
+        ]);
+        $doctor = Doctor::findOrFail($id);
+        $doctor->update($incomming_data);
+
+        return redirect(route('doctors.index'))->with('success','Doctor Edited Successfully');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Doctor $doctor)
+    public function destroy(Request $request, $id)
     {
-        //
+        $doctor = Doctor::findOrFail($id);
+        $doctor->delete();
+         return redirect(route('doctors.index'))->with('success', 'Doctor deleted Successfully');
     }
 }
