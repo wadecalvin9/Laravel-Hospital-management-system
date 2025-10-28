@@ -23,7 +23,7 @@ It helps hospitals manage patients, doctors, appointments, billing, and analytic
 |------------|---------------|-----------|
 | ![Dashboard Screenshot](public/screenshots/dashboard.png) | ![Appointments Screenshot](public/screenshots/appointments.png) | ![Patients Screenshot](public/screenshots/patients.png) |
 
-*(You can replace the image paths above with your actual screenshots.)*
+
 
 ---
 
