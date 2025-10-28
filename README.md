@@ -19,9 +19,9 @@ It helps hospitals manage **patients, doctors, appointments, billing, and analyt
 
 ## 🖥️ Screenshots
 
-| Dashboard | Appointments | Patients |
+|Home| Dashboard | Appointments | Patients |
 |------------|---------------|-----------|
-| ![Dashboard Screenshot](public/screenshots/dashboard.png) | ![Appointments Screenshot](public/screenshots/appointments.png) | ![Patients Screenshot](public/screenshots/patients.png) |
+| ![Dashboard Screenshot](public/screenshots/home.png) | ![Dashboard Screenshot](public/screenshots/dashboard.png) | ![Appointments Screenshot](public/screenshots/appointments.png) | ![Patients Screenshot](public/screenshots/patients.png) |
 
 ---
 
