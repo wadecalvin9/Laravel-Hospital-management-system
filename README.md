@@ -1,4 +1,4 @@
-# 🏥 Laravel Hospital Management System
+# 🏥 Laravel Hospital Management Syste
 
 A modern, user-friendly **Hospital Management System** built with **Laravel**.  
 It helps hospitals manage **patients, doctors, appointments, billing, and analytics** efficiently in one unified platform.
